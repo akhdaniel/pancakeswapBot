@@ -7,6 +7,7 @@ import time
 
 def approve(amount):
     busd_contract = web3.eth.contract(address=config.BUSD, abi=config.BUSD_ABI)
+    print('approve txhash', busd_contract,config.sender_address )
     
     #approve BUSD
     txn = {
@@ -16,7 +17,7 @@ def approve(amount):
     approve_txn = busd_contract.functions.approve(Web3.toChecksumAddress(config.sender_address),amount).buildTransaction(txn)
     signed_txn = web3.eth.account.signTransaction(approve_txn, config.private)
     tx_hash = web3.eth.sendRawTransaction(signed_txn.rawTransaction)
-    print('apprive txhash', tx_hash)
+    print('approve txhash', tx_hash)
 
 
 bsc = "https://bsc-dataseed.binance.org/"
