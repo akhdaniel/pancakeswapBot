@@ -30,7 +30,7 @@ pancakeswap2_txn = contract.functions.swapExactETHForTokens(
     (int(time.time()) + 10000)
     ).buildTransaction({
     'from': sender_address,
-    'value': web3.toWei(0.001,'ether'),#This is the Token(BNB) amount you want to Swap from
+    'value': web3.toWei(0.01,'ether'), #This is the Token(BUSD) amount you want to Swap from
     'gas': 250000,
     'gasPrice': web3.toWei('5','gwei'),
     'nonce': nonce,
