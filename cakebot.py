@@ -43,7 +43,7 @@ nonce = web3.eth.get_transaction_count(sender_address)
 start = time.time()
 
 amount=Web3.toWei(0.01,'ether')
-approve(amount)
+# approve(amount)
 
 #execute swap
 pancakeswap2_txn = contract.functions.swapExactETHForTokens(
@@ -53,9 +53,9 @@ pancakeswap2_txn = contract.functions.swapExactETHForTokens(
     (int(time.time()) + 10000)
 ).buildTransaction({
     'from': sender_address,
-    'value': web3.toWei(amount,'ether'), #This is the Token(BUSD) amount you want to Swap from
-    # 'gas': 250000,
-    # 'gasPrice': web3.toWei('5','gwei'),
+    'value': amount, #This is the Token(BUSD) amount you want to Swap from
+    'gas': 250000,
+    'gasPrice': web3.toWei('5','gwei'),
     'nonce': nonce
 })
 
