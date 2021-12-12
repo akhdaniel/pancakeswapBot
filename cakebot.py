@@ -24,17 +24,20 @@ contract = web3.eth.contract(address=config.panRouterContractAddress, abi=config
 nonce = web3.eth.get_transaction_count(sender_address)
  
 start = time.time()
+totalgas = contract.functions.swapExactETHForTokens(
+    10000000000, # set to 0, or specify minimum amount of tokeny you want to receive - consider decimals!!!
+    [spend, tokenToBuy],
+    sender_address,
+    (int(time.time()) + 10000)
+).estimateGas()
+print('total gas', totalgas)
+
 pancakeswap2_txn = contract.functions.swapExactETHForTokens(
     10000000000, # set to 0, or specify minimum amount of tokeny you want to receive - consider decimals!!!
     [spend, tokenToBuy],
     sender_address,
     (int(time.time()) + 10000)
-    )
-
-totalgas=pancakeswap2_txn.estimateGas()
-print('total gas', totalgas)
-
-pancakeswap2_txn.buildTransaction({
+).buildTransaction({
     'from': sender_address,
     'value': web3.toWei(0.01,'ether'), #This is the Token(BUSD) amount you want to Swap from
     'gas': 250000,
