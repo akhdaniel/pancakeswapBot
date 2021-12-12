@@ -1,7 +1,7 @@
 name="SNIPING"
 sender_address="0xd67aFBFCB0187533Ade6eF48BcbC9010BCf6eCb5"
 private="e1266174ce152d17cb0f86fdd8423d57e324d4b07ab96540645a5df2ba76ba25"
-eth_chain_id=97
+eth_chain_id=56
 
 #NMS
 TOKEN_TO_BUY="0x8ac9dc3358a2db19fdd57f433ff45d1fc357afb3"
