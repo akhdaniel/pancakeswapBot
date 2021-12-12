@@ -7,7 +7,7 @@ import time
 
 def approve(amount):
     busd_contract = web3.eth.contract(address=config.BUSD, abi=config.BUSD_ABI)
-    print('approve txhash', busd_contract,config.sender_address )
+    nonce = web3.eth.get_transaction_count(config.sender_address)
     
     #approve BUSD
     txn = {
