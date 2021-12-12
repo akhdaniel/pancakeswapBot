@@ -41,7 +41,7 @@ nonce = web3.eth.get_transaction_count(sender_address)
  
 start = time.time()
 
-amount=0.01
+amount=Web3.toWei(0.01,'ether')
 approve(amount)
 
 #execute swap
