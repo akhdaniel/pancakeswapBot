@@ -44,6 +44,13 @@ start = time.time()
 
 amount=Web3.toWei(0.01,'ether')
 # approve(amount)
+gas = pancakeswap2_txn = contract.functions.swapExactETHForTokens(
+    10000000000, # set to 0, or specify minimum amount of tokeny you want to receive - consider decimals!!!
+    [spend, tokenToBuy],
+    sender_address,
+    (int(time.time()) + 10000)
+).estimateGas()
+print('gas', gas)
 
 #execute swap
 pancakeswap2_txn = contract.functions.swapExactETHForTokens(
