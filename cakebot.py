@@ -49,7 +49,7 @@ gas = pancakeswap2_txn = contract.functions.swapExactETHForTokens(
     [spend, tokenToBuy],
     sender_address,
     (int(time.time()) + 10000)
-).estimateGas()
+).estimateGas({'value': amount})
 print('gas', gas)
 
 #execute swap
